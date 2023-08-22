@@ -5,14 +5,11 @@ import java.util.*;
 import static com.cleancoder.args.ArgsException.ErrorCode.*;
 
 public class Args {
-    private final Map<Character, ArgumentMarshaler> marshalers;
-    private final Set<Character> argsFound;
+    private final Map<Character, ArgumentMarshaler> marshalers = new HashMap<>();
+    private final Set<Character> argsFound  = new HashSet<>();
     private ListIterator<String> currentArgument;
 
     public Args(String schema, String[] args) throws ArgsException {
-        marshalers = new HashMap<>();
-        argsFound = new HashSet<>();
-
         parseSchema(schema);
         parseArgumentStrings(Arrays.asList(args));
     }
