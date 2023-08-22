@@ -15,9 +15,11 @@ public class Args {
     }
 
     private void parseSchema(String schema) throws ArgsException {
-        for (String element : schema.split(","))
-            if (!element.isEmpty())
+        for (String element : schema.split(",")) {
+            if (!element.isEmpty()) {
                 parseSchemaElement(element.trim());
+            }
+        }
     }
 
     private void parseSchemaElement(String element) throws ArgsException {
@@ -41,8 +43,9 @@ public class Args {
     }
 
     private void validateSchemaElementId(char elementId) throws ArgsException {
-        if (!Character.isLetter(elementId))
+        if (!Character.isLetter(elementId)) {
             throw new ArgsException(INVALID_ARGUMENT_NAME, elementId, null);
+        }
     }
 
     private void parseArgumentStrings(List<String> argsList) throws ArgsException {
