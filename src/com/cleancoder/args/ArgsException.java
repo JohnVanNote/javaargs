@@ -7,9 +7,6 @@ public class ArgsException extends Exception {
     private String errorParameter = null;
     private ErrorCode errorCode = OK;
 
-    public ArgsException() {
-    }
-
     public ArgsException(ErrorCode errorCode) {
         this.errorCode = errorCode;
     }
@@ -37,16 +34,8 @@ public class ArgsException extends Exception {
         return errorParameter;
     }
 
-    public void setErrorParameter(String errorParameter) {
-        this.errorParameter = errorParameter;
-    }
-
     public ErrorCode getErrorCode() {
         return errorCode;
-    }
-
-    public void setErrorCode(ErrorCode errorCode) {
-        this.errorCode = errorCode;
     }
 
     public String errorMessage() {
