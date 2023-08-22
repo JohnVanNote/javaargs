@@ -10,10 +10,6 @@ public class ArgsException extends Exception {
     public ArgsException() {
     }
 
-    public ArgsException(String message) {
-        super(message);
-    }
-
     public ArgsException(ErrorCode errorCode) {
         this.errorCode = errorCode;
     }
