@@ -4,7 +4,7 @@ import static com.cleancoder.args.ArgsException.ErrorCode.*;
 
 import java.util.*;
 
-public class IntegerArgumentMarshaler implements ArgumentMarshaler {
+public class IntegerArgumentMarshaler implements ArgumentMarshaler<Integer> {
     private int intValue = 0;
 
     public void set(Iterator<String> currentArgument) throws ArgsException {
@@ -19,10 +19,7 @@ public class IntegerArgumentMarshaler implements ArgumentMarshaler {
         }
     }
 
-    public static int getValue(ArgumentMarshaler am) {
-        if (am != null && am instanceof IntegerArgumentMarshaler)
-            return ((IntegerArgumentMarshaler) am).intValue;
-        else
-            return 0;
+    public Integer get() {
+        return intValue;
     }
 }

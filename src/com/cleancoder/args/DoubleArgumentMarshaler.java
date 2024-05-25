@@ -4,7 +4,7 @@ import static com.cleancoder.args.ArgsException.ErrorCode.*;
 
 import java.util.*;
 
-public class DoubleArgumentMarshaler implements ArgumentMarshaler {
+public class DoubleArgumentMarshaler implements ArgumentMarshaler<Double> {
     private double doubleValue = 0;
 
     public void set(Iterator<String> currentArgument) throws ArgsException {
@@ -19,10 +19,7 @@ public class DoubleArgumentMarshaler implements ArgumentMarshaler {
         }
     }
 
-    public static double getValue(ArgumentMarshaler am) {
-        if (am != null && am instanceof DoubleArgumentMarshaler)
-            return ((DoubleArgumentMarshaler) am).doubleValue;
-        else
-            return 0.0;
+    public Double get() {
+       return doubleValue;
     }
 }

@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 
 import static com.cleancoder.args.ArgsException.ErrorCode.MISSING_STRING;
 
-public class StringArgumentMarshaler implements ArgumentMarshaler {
+public class StringArgumentMarshaler implements ArgumentMarshaler<String> {
     private String stringValue = "";
 
     public void set(Iterator<String> currentArgument) throws ArgsException {
@@ -16,10 +16,7 @@ public class StringArgumentMarshaler implements ArgumentMarshaler {
         }
     }
 
-    public static String getValue(ArgumentMarshaler am) {
-        if (am != null && am instanceof StringArgumentMarshaler)
-            return ((StringArgumentMarshaler) am).stringValue;
-        else
-            return "";
+    public String get() {
+        return stringValue;
     }
 }

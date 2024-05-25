@@ -88,27 +88,7 @@ public class Args {
         return currentArgument.nextIndex();
     }
 
-    public boolean getBoolean(char arg) {
-        return BooleanArgumentMarshaler.getValue(marshalers.get(arg));
-    }
-
-    public String getString(char arg) {
-        return StringArgumentMarshaler.getValue(marshalers.get(arg));
-    }
-
-    public int getInt(char arg) {
-        return IntegerArgumentMarshaler.getValue(marshalers.get(arg));
-    }
-
-    public double getDouble(char arg) {
-        return DoubleArgumentMarshaler.getValue(marshalers.get(arg));
-    }
-
-    public String[] getStringArray(char arg) {
-        return StringArrayArgumentMarshaler.getValue(marshalers.get(arg));
-    }
-
-    public Map<String, String> getMap(char arg) {
-        return MapArgumentMarshaler.getValue(marshalers.get(arg));
+    public <T> Object getValue(T arg) {
+        return marshalers.get(arg).get();
     }
 }
