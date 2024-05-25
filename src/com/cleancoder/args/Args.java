@@ -5,7 +5,7 @@ import java.util.*;
 import static com.cleancoder.args.ArgsException.ErrorCode.*;
 
 public class Args {
-    private final Map<Character, ArgumentMarshaler> marshalers = new HashMap<>();
+    private final Map<Character, ArgumentMarshaler<?>> marshalers = new HashMap<>();
     private final Set<Character> argsFound  = new HashSet<>();
     private ListIterator<String> currentArgument;
 
@@ -66,7 +66,7 @@ public class Args {
     }
 
     private void parseArgumentCharacter(char argChar) throws ArgsException {
-        ArgumentMarshaler m = marshalers.get(argChar);
+        ArgumentMarshaler<?> m = marshalers.get(argChar);
         if (m == null) {
             throw new ArgsException(UNEXPECTED_ARGUMENT, argChar, null);
         } else {
