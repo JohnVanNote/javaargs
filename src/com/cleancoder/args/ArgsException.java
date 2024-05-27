@@ -5,7 +5,7 @@ import static com.cleancoder.args.ArgsException.ErrorCode.*;
 public class ArgsException extends Exception {
     private char errorArgumentId = '\0';
     private String errorParameter = null;
-    private ErrorCode errorCode = OK;
+    private final ErrorCode errorCode;
 
     public ArgsException(ErrorCode errorCode) {
         this.errorCode = errorCode;
