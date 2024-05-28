@@ -1,5 +1,6 @@
 This is the java version of the Args program described in: http://butunclebob.com/ArticleS.UncleBob.CleanCodeArgs
 
+```java
 public class ArgsMain {
   public static void main(String[] args) {
     try {
@@ -17,6 +18,7 @@ public class ArgsMain {
     System.out.printf("logging is %s, port:%d, directory:%s\n",logging, port, directory);
   }
 }
+```
 
 Schema:
  - char    - Boolean arg.
@@ -26,5 +28,5 @@ Schema:
  - char[*] - one element of a string array.
 
 Example schema: (f,s*,n#,a##,p[*])
-Coresponding command line: "-f -s Bob -n 1 -a 3.2 -p e1 -p e2 -p e3
+Corresponding command line: "-f -s Bob -n 1 -a 3.2 -p e1 -p e2 -p e3
 
