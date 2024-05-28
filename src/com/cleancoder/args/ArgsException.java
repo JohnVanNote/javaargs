@@ -1,7 +1,5 @@
 package com.cleancoder.args;
 
-import static com.cleancoder.args.ArgsException.ErrorCode.*;
-
 public class ArgsException extends Exception {
     private static final char DEFAULT_ERROR_ARGUMENT_ID = '\0';
 
