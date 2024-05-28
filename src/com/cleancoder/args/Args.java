@@ -74,8 +74,7 @@ public class Args {
             try {
                 m.set(currentArgument);
             } catch (ArgsException e) {
-                e.setErrorArgumentId(argChar);
-                throw e;
+                throw new ArgsException(e.getErrorCode(), argChar,e.getErrorParameter());
             }
         }
     }

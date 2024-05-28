@@ -3,17 +3,19 @@ package com.cleancoder.args;
 import static com.cleancoder.args.ArgsException.ErrorCode.*;
 
 public class ArgsException extends Exception {
-    private char errorArgumentId = '\0';
-    private String errorParameter = null;
+    private static final char DEFAULT_ERROR_ARGUMENT_ID = '\0';
+
     private final ErrorCode errorCode;
+    private final String errorParameter;
+    private final char errorArgumentId;
+
 
     public ArgsException(ErrorCode errorCode) {
-        this.errorCode = errorCode;
+        this(errorCode, null);
     }
 
     public ArgsException(ErrorCode errorCode, String errorParameter) {
-        this.errorCode = errorCode;
-        this.errorParameter = errorParameter;
+        this(errorCode, DEFAULT_ERROR_ARGUMENT_ID, errorParameter);
     }
 
     public ArgsException(ErrorCode errorCode, char errorArgumentId, String errorParameter) {
@@ -24,10 +26,6 @@ public class ArgsException extends Exception {
 
     public char getErrorArgumentId() {
         return errorArgumentId;
-    }
-
-    public void setErrorArgumentId(char errorArgumentId) {
-        this.errorArgumentId = errorArgumentId;
     }
 
     public String getErrorParameter() {
